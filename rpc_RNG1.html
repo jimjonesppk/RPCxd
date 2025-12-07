@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPC</title>
+  </head>
+  <body>
+    <p>PICK ROCK PAPER SCISSORS</p>
+    <button
+      onclick="
+    playGame('Rock')
+    "
+    >
+      ROCK
+    </button>
+    <button
+      onclick="
+    playGame('Paper')
+    "
+    >
+      PAPER
+    </button>
+    <button
+      onclick="
+    playGame('Scissors')
+    "
+    >
+      SCISSORS
+    </button>
+    <script>
+      function playGame(role) {
+        const compMoveSysin = rngMove();
+
+        let state = "";
+
+        if (role === compMoveSysin) {
+          state = "Tie";
+        } else if (
+          (role === "rock" && compMoveSysin === "Scissors") ||
+          (role === "Paper" && compMoveSysin === "Rock") ||
+          (role === "Scissors" && compMoveSysin === "Paper")
+        ) {
+          state = "Win";
+        } else {
+          state = "Lose";
+        }
+
+        console.log(compMoveSysin);
+        console.log(state);
+
+        alert(
+          `you picked ${role} and god picked ${compMoveSysin}, you ${state}`
+        );
+      }
+
+      function rngMove() {
+        const RNGpc = Math.random();
+
+        let compMove = "";
+        if (RNGpc >= 0 && RNGpc < 1 / 3) {
+          compMove = "Rock";
+        } else if (RNGpc >= 1 / 3 && RNGpc < 2 / 3) {
+          compMove = "Paper";
+        } else if (RNGpc >= 2 / 3 && RNGpc < 3 / 3) {
+          compMove = "Scissors";
+        }
+
+        return compMove;
+      }
+    </script>
+  </body>
+</html>
