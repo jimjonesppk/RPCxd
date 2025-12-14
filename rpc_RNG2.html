@@ -28,18 +28,27 @@
     >
       SCISSORS
     </button>
-    <button onclick="resetScore()">
-      RESET SCORE
-    </button>
+    <button onclick="resetScore()">RESET SCORE</button>
 
     <br /><br />
 
     <script>
-      const score = {
+      let score = JSON.parse(localStorage.getItem("scoresc")) || {
         userWins: 0,
         compWins: 0,
         Ties: 0,
       };
+      //OR
+
+      /*
+      if (!score) {        ///score === null same thing coz null is falsy
+        score = {
+          userWins: 0,
+          compWins: 0,
+          Ties: 0,
+        };
+      } 
+      */
 
       function playGame(role) {
         const compMoveSysin = rngMove();
@@ -61,12 +70,12 @@
           score.compWins += 1;
         }
 
-        console.log(compMoveSysin);
-        console.log(state);
+        localStorage.setItem("scoresc", JSON.stringify(score));
 
         alert(
           `you picked ${role} and god picked ${compMoveSysin}, you ${state}
-Wins : ${score.userWins} , Losses : ${score.compWins}, Ties : ${score.Ties}`);
+Wins : ${score.userWins} , Losses : ${score.compWins}, Ties : ${score.Ties}`
+        );
       }
 
       function rngMove() {
@@ -89,8 +98,8 @@ Wins : ${score.userWins} , Losses : ${score.compWins}, Ties : ${score.Ties}`);
         score.compWins = 0;
         score.Ties = 0;
         alert("Score has been reset!");
+        localStorage.removeItem("scoresc");
       }
-      
     </script>
   </body>
 </html>
