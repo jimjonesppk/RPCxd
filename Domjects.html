@@ -1,19 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM</title>
-</head>
-<body>
-    <button>Click me</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM prj</title>
+  </head>
+  <body>
+    <p>SUB PLS</p>
+    <button onclick="subscribe()" class="sub">Subscribe</button>
     <script>
-        // document.body.innerHTML = ' hello world  ';
-        // document.title = 'GJ';
-
-        console.log(document.title);
-        
-        
+      function subscribe() {
+        const btnContent = document.querySelector(".sub");
+            if (btnContent.innerText == "Subscribe") {
+            btnContent.innerText = "Subscribed";
+            } else {
+            btnContent.innerText = "Subscribe";
+            }
+      }
     </script>
-</body>
+  </body>
 </html>
