@@ -13,6 +13,7 @@
       type="number"
       class="order-amount"
       placeholder="Enter order amount"
+      onkeydown="Enterkey(event)"
     />
     <button onclick="Calculate()">Calculate</button>
     <p class="js-result-total"></p>
@@ -27,6 +28,11 @@
         } else {
           document.querySelector(".js-result-total").innerHTML =
             `TOTAL: $${cost}`;
+        }
+      }
+      function Enterkey(event) {
+        if (event.key === "Enter") {
+          Calculate();
         }
       }
     </script>
