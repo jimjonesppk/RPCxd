@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CALCULATOR</title>
+  </head>
+  <body>
+    <p>Shipping Calculator</p>
+    <p>Orders under 40$ = +5$ shipping</p>
+    <p>Orders over 40$ = Free shipping</p>
+    <input
+      type="number"
+      class="order-amount"
+      placeholder="Enter order amount"
+    />
+    <button onclick="Calculate()">Calculate</button>
+    <p class="js-result-total"></p>
+    <script>
+      function Calculate() {
+        const orderAmount = document.querySelector(".order-amount");
+        let cost = orderAmount.value;
+        if (cost < 40) {
+          cost = cost++ + 5;
+          document.querySelector(".js-result-total").innerHTML =
+            `TOTAL: $${cost}`;
+        } else {
+          document.querySelector(".js-result-total").innerHTML =
+            `TOTAL: $${cost}`;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -27,7 +27,6 @@
         Ties: 0,
       };
       displayScore();
-      gameScenario();
 
       function playGame(role) {
         const compMoveSysin = rngMove();
@@ -51,7 +50,6 @@
 
         localStorage.setItem("scoresc", JSON.stringify(score));
         displayScore();
-        gameScenario();
 
         document.querySelector(".js-state").innerHTML =
           `You picked ${role} - God picked ${compMoveSysin},`;
@@ -87,7 +85,6 @@
           `Wins : ${score.userWins} , Losses : ${score.compWins},
             Ties : ${score.Ties}`;
       }
-      function gameScenario() {}
     </script>
   </body>
 </html>
