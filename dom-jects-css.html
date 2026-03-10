@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM prj</title>
+    <style>
+      .subscribe-button-css {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 40px;
+        cursor: pointer;
+      }
+      .subscribed-button-css {
+        background-color: rgb(26, 150, 26);
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 40px;
+        cursor: pointer;
+      }
+      .jp-text-1 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="jp-text-1">Youtube Subscribe Button</p>
+    <button onclick="subscribe()" class="Subscribe-button subscribe-button-css">
+      Subscribe
+    </button>
+    <script>
+      function subscribe() {
+        const btnContent = document.querySelector(".Subscribe-button");
+        if (btnContent.innerText == "Subscribe") {
+          btnContent.innerText = "Subscribed";
+          btnContent.classList.add("subscribed-button-css");         
+        } else {
+          btnContent.innerText = "Subscribe";
+          btnContent.classList.remove("subscribed-button-css");
+        }
+      }
+    </script>
+  </body>
+</html>
