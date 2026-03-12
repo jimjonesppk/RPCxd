@@ -1,0 +1,62 @@
+let score = JSON.parse(localStorage.getItem("scoresc")) || {
+  userWins: 0,
+  compWins: 0,
+  Ties: 0,
+};
+displayScore();
+
+function playGame(role) {
+  const compMoveSysin = rngMove();
+
+  let state = "";
+
+  if (role === compMoveSysin) {
+    state = "Tie";
+    score.Ties += 1;
+  } else if (
+    (role === "Rock" && compMoveSysin === "Scissors") ||
+    (role === "Paper" && compMoveSysin === "Rock") ||
+    (role === "Scissors" && compMoveSysin === "Paper")
+  ) {
+    state = "Win";
+    score.userWins += 1;
+  } else {
+    state = "Lose";
+    score.compWins += 1;
+  }
+
+  localStorage.setItem("scoresc", JSON.stringify(score));
+  displayScore();
+
+  document.querySelector(".js-state").innerHTML =
+    `You picked <img src="Assets/${role}.png" class="res-img">- God picked <img src="Assets/${compMoveSysin}.png" class="res-img"">,`;
+  document.querySelector(".js-result").innerHTML = `You ${state}!`;
+}
+
+function rngMove() {
+  const RNGpc = Math.random();
+
+  let compMove = "";
+  if (RNGpc >= 0 && RNGpc < 1 / 3) {
+    compMove = "Rock";
+  } else if (RNGpc >= 1 / 3 && RNGpc < 2 / 3) {
+    compMove = "Paper";
+  } else {
+    compMove = "Scissors";
+  }
+
+  return compMove;
+}
+
+function resetScore() {
+  score.userWins = 0;
+  score.compWins = 0;
+  score.Ties = 0;
+  localStorage.removeItem("scoresc");
+  displayScore();
+}
+
+function displayScore() {
+  document.querySelector(".js-score").innerHTML =
+    `Wins: ${score.userWins} | Losses: ${score.compWins} | Ties: ${score.Ties}`;
+}

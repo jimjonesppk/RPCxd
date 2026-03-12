@@ -1,0 +1,79 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(242, 235, 36);
+  color: #000000;
+}
+.css-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+.choice-btn {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 125px;
+  margin: 10px;
+  padding-top: 5px;
+  padding: 2px;
+
+  cursor: pointer;
+  border-radius: 30%;
+  border: 4px solid #729e4f;
+  overflow: hidden;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  background-color: #151515;
+}
+.choice-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+.choice-btn:active {
+  transform: scale(0.95);
+}
+.choice-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(5.1);
+}
+.reset-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #acd866;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+p {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #050504;
+}
+.img-btn {
+  background-color: transparent;
+}
+.css-result {
+  font-size: 50px;
+}
+.res-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: center;
+  display: inline-block;
+  vertical-align: middle;
+}
